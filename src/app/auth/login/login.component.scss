@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'MiFuentePersonalizada';
+    src: url('../../../assets/fonts/Italiana-Regular.ttf') format('truetype');
+    /* Puedes agregar otros atributos según sea necesario, como font-weight, font-style, etc. */
+  }
+
+  @font-face {
+    font-family: 'Island';
+    src: url('../../../assets/fonts/IslandMoments-Regular.ttf') format('truetype');
+    /* Puedes agregar otros atributos según sea necesario, como font-weight, font-style, etc. */
+  }
+
+  h1 {
+    font-family: 'MiFuentePersonalizada', sans-serif;
+  }
+
+  h2 {
+    font-family: 'Island', sans-serif;
+  }
+  
