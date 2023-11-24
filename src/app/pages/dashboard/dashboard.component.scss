@@ -1,0 +1,13 @@
+.container-fluid {
+    background-color: #FBC97E;
+    min-height: 90vh;
+}
+
+.custom-card {
+    border: 1px solid #000;
+    transition: box-shadow 0.3s;
+}
+
+.custom-card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

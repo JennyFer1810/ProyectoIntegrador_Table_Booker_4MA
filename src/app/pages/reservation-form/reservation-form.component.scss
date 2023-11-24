@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Italiana';
+    src: url('../../../assets/fonts/Italiana-Regular.ttf') format('truetype');
+}
+
+h1 {
+    font-family: 'Italiana', sans-serif;
+    font-size: 55px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+}
