@@ -5,22 +5,24 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
+import { CustomerReservationComponent } from './customer-reservation/customer-reservation.component';
+import { AdminReservationComponent } from './admin-reservation/admin-reservation.component';
 
 
 
 @NgModule({
   declarations: [
-    PagesComponent,
+
     DashboardComponent,
-    ReservationFormComponent
+    ReservationFormComponent,
+    CustomerReservationComponent,
+    AdminReservationComponent
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
     SharedModule
   ],
-  exports: [
-    PagesComponent
-  ]
+
 })
 export class PagesModule { }
