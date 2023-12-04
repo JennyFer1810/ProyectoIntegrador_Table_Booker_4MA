@@ -11,6 +11,8 @@ import { PagesRoutingModule } from './pages/pages-routing.module';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 
 
+
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -18,7 +20,8 @@ import { AuthRoutingModule } from './auth/auth-routing.module';
         PagesComponent,
         AuthComponent
     ],
-    providers: [],
+    providers: [
+    ],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,

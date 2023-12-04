@@ -1,58 +1,79 @@
-<p>customer-reservation works!</p>
-<div class="container-fluid">
-    <div class="row justify-content-center p-3 mb-3">
-        <div class="col-md-10">
-            <div class="row title p-2">
-                <div class="col-10 col-md-6">
-                    <h3>Reservaciones</h3>
-                </div>
-                <div class="col-10 col-md-6 text-end">
-                    <button type="button" class="btn title2"><img src="../../../assets/icons/mas.svg" alt="Icono"
-                            class="img-fluid ms-2" style="max-height: 20px;">
-                        Nueva Reserva
-                    </button>
-                </div>
-            </div>
-        </div>
+<div class="container-fluid vh-100">
+  <div class="row justify-content-center ">
+    <div class="col-12 col-md-12 col-lg-12 mt-5">
+      <h2 class="text-center">Listado de Reservaciones</h2>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-10 col-lg-10">
-            <div class="table-responsive">
-                <table class="table table-striped mx-auto">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Fecha de Reserva</th>
-                            <th scope="col">Pago</th>
-                            <th scope="col">Seguimiento</th>
-                            <th scope="col">Visualizar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td id="nombre1" class="nombre"><img src="../../../assets/images/user.png" alt="Imagen 1"
-                                    class="img-thumbnail" style="max-width: 50px;">Juan</td>
-                            <td id="fechaReserva1" class="fechaReserva">2023-11-23 15:30:00</td>
-                            <td id="pago1" class="pago">$50.00</td>
-                            <td id="seguimiento1" class="seguimiento">En Proceso</td>
-                            <td><button type="button" class="btn btn-primary" id="visualizar1">Ver Detalles</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td id="nombre2" class="nombre"><img src="../../../assets/images/user.png" alt="Imagen 2"
-                                    class="img-thumbnail" style="max-width: 50px;">Juan</td>
-                            <td id="fechaReserva2" class="fechaReserva">2023-11-25 18:45:00</td>
-                            <td id="pago2" class="pago">$80.00</td>
-                            <td id="seguimiento2" class="seguimiento">Completado</td>
-                            <td><button type="button" class="btn btn-primary" id="visualizar2">Ver Detalles</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-10 col-md-12 col-lg-10 offset-1 ">
+      <hr>
     </div>
+  </div>
+
+  <div class="row justify-content-center pt-3 px-3 pb-2">
+    <div class="col-12 col-md-10 col-lg-10">
+      <div class="row title p-2">
+        <div class="col-6 col-md-6 col-log-10">
+          <h3>Reservaciones</h3>
+        </div>
+        <div class="col-6 col-md-6 col-log-10 text-end">
+          <button type="button" class="btn title2" (click)="navegarAReservationForm()">
+            <img src="../../../assets/icons/mas.svg" class="img-fluid ms-2" style="max-height: 20px;">
+            Nueva Reserva
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-10">
+      <div class="table-responsive">
+        <table class="table mx-auto custom-table table-borderless">
+          <thead class="justify-content-center text-center">
+            <tr>
+              <th scope="col" id="nombre">Nombre</th>
+                <th scope="col" id="fecha">Fecha de Reserva</th>
+                <th scope="col" id="pago">Pago</th>
+                <th scope="col" id="seguimiento">Seguimiento</th>
+                <th scope="col" id="boton">Visualizar</th>
+            </tr>
+          </thead>
+          <tbody class="justify-content-center text-center">
+            <tr>
+              <td id="nombre1" class="nombre">
+                <div class="d-flex align-items-center">
+                  <img src="../../../assets/images/user.png" class="rounded-circle ms-3" width="50">
+                  <span class="flex-grow-1">Juan</span>
+                </div>
+              </td>
+              <td id="fechaReserva1" class="fechaReserva">2023-11-23 15:30:00</td>
+              <td id="pago1" class="pago">$50.00</td>
+              <td id="seguimiento1" class="seguimiento">En Proceso</td>
+              <td><button type="submit" class="btn-icon text-center" id="visualizar1">
+                  <img src="../../../assets/icons/eye.svg" width="50">
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td id="nombre2" class="nombre">
+                <div class="d-flex align-items-center">
+                  <img src="../../../assets/images/user.png" class="rounded-circle ms-3" width="50">
+                  <span class="flex-grow-1">Juana</span>
+                </div>
+              </td>
+              <td id="fechaReserva2" class="fechaReserva">2023-11-25 18:45:00</td>
+              <td id="pago2" class="pago">$80.00</td>
+              <td id="seguimiento2" class="seguimiento">Completado</td>
+              <td><button type="submit" class="btn-icon text-center" id="visualizar2">
+                  <img src="../../../assets/icons/eye.svg" width="50">
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,46 @@
+<p>profile works!</p>
+<!-- Aquí puedes escribir tu comentario 
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" (click)="mostrarPerfil('activo')" [class.active]="activeTab === 'activo'">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="mostrarPerfil('inactivo')" [class.disabled]="activeTab === 'inactivo'">Disabled</a>
+  </li>
+</ul>
+
+<div *ngIf="activeTab === 'activo'">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre"><br><br>
+
+  <label for="apellido">Apellido:</label>
+  <input type="text" id="apellido" name="apellido"><br><br>
+
+  <label for="identificacion">Identificación:</label>
+  <input type="text" id="identificacion" name="identificacion"><br><br>
+
+  <label for="correo">Correo Electrónico:</label>
+  <input type="text" id="correo" name="correo"><br><br>
+</div>
+
+<div *ngIf="activeTab === 'inactivo'">
+  <p>Completo</p>
+</div>
+-->
+
+<ul class="nav nav-tabs">
+  <li class="nav-item" *ngFor="let tab of tabs">
+    <a class="nav-link" 
+       [class.active]="tab === activeTab" 
+       (click)="setActiveTab(tab)">
+      {{ tab.title }}
+    </a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane" *ngFor="let tab of tabs" [class.show]="tab === activeTab">
+    <p>{{ tab.content }}</p>
+  </div>
+</div>
+

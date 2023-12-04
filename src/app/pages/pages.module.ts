@@ -7,6 +7,9 @@ import { SharedModule } from '../shared/shared.module';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import { CustomerReservationComponent } from './customer-reservation/customer-reservation.component';
 import { AdminReservationComponent } from './admin-reservation/admin-reservation.component';
+import { RouterModule } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,12 +19,15 @@ import { AdminReservationComponent } from './admin-reservation/admin-reservation
     DashboardComponent,
     ReservationFormComponent,
     CustomerReservationComponent,
-    AdminReservationComponent
+    AdminReservationComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
-    SharedModule
+    SharedModule,
+    //RouterModule.forRoot([])
+    FormsModule
   ],
 
 })
