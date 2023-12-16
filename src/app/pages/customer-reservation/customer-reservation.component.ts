@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ReservaService } from 'src/app/services/reserva.service';
 
 @Component({
   selector: 'app-customer-reservation',
@@ -7,9 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./customer-reservation.component.scss']
 })
 export class CustomerReservationComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private reservacionService: ReservaService) { }
 
   navegarAReservationForm() {
     this.router.navigate(['/reservationForm']);
   }
+
+  async getCustomeReservaList(){
+
+  }
+
+
 }

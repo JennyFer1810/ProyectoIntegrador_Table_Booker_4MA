@@ -17,6 +17,10 @@ export class ReservaService {
     return this.httpClient.get<ReservaModel[]>(`${this.reservaURL}`);
   }
 
+  public getListUserReserva(usuario: number): Observable<ReservaModel[]> {
+    return this.httpClient.get<ReservaModel[]>(`${this.reservaURL}${usuario}`);
+  }
+
   public getByIdReserva(id: number): Observable<ReservaModel[]> {
     return this.httpClient.get<ReservaModel[]>(`${this.reservaURL}${id}`);
   }
