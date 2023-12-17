@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
     this.isEditing = !this.isEditing;
   }
 
-  updateUser(id: number, usuario: any) {
+  updateUser(id: number, usuario: AuxUsuario) {
     console.log(id, usuario);
     console.log(this.isEditing);
 

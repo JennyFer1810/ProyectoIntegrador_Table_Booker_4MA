@@ -6,7 +6,11 @@
       </h1>
       <div class="card shadow-lg mb-5">
         <div class="card-body p-5">
-          <form (ngSubmit)="isEditing ? updateMesa(mesa.id_mesa, mesa) : saveMesa(mesa)">
+          <form
+            (ngSubmit)="
+              isEditing ? updateMesa(mesa.id_mesa, mesa) : saveMesa(mesa)
+            "
+          >
             <div class="mb-3">
               <label for="cantidadPersonas" class="form-label"
                 >Capacidad de personas</label
@@ -62,7 +66,9 @@
               />
             </div>
             <div class="mb-3">
-              <label class="form-check-label m-1" for="estado"> Disponible </label>
+              <label class="form-check-label m-1" for="estado">
+                Disponible
+              </label>
               <input
                 class="form-check-input m-1"
                 type="checkbox"
@@ -73,7 +79,7 @@
             </div>
             <div class="d-grid">
               <button type="submit" class="btn btn-primary rounded-pill">
-                {{isEditing ? "Actualizar" : "Guardar"}}
+                {{ isEditing ? "Actualizar" : "Guardar" }}
               </button>
             </div>
           </form>

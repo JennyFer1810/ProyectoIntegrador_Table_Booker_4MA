@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { LoginUsuarioModel } from '../models/login.model';
 import { Observable } from 'rxjs';
 import { Usuario as UsuarioModel } from '../models/usuario.model';
+import { AuxUsuario as AuxUsuarioModel } from '../models/aux-user.model';
 import { TokenModel } from '../models/token.model';
 
 @Injectable({
@@ -28,7 +29,7 @@ export class AuthService {
     return this.httpClient.post<any>(this.authURL + 'refresh', dto);
   }
 
-  public updateUser(id_usuario: number, usuario: UsuarioModel): Observable<any> {
+  public updateUser(id_usuario: number, usuario: AuxUsuarioModel): Observable<any> {
     return this.httpClient.patch<any>(`${this.authURL}${id_usuario}`, usuario);
   }
 

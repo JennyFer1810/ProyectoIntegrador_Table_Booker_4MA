@@ -23,12 +23,9 @@ export class TableFormComponent implements OnInit {
     if (history.state.isNew) {
       this.isEditing = true;
       this.mesa = history.state.data;
-      console.log(this.mesa);
     } else {
       this.isEditing = false;
       this.mesa = new Mesa();
-      console.log(this.isEditing);
-      console.log(this.mesa);
     }
   }
 

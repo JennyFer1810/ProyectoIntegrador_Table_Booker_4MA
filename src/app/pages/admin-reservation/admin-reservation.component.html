@@ -60,14 +60,16 @@
                 <button
                   type="submit"
                   class="btn-icon text-center"
-                  id="visualizar1"
+                  id="cancelar"
                 >
                   <img src="../../../assets/icons/trashacan.svg" width="40" />
                 </button>
                 <button
                   type="submit"
                   class="btn-icon text-center"
-                  id="visualizar1"
+                  id="actualizar"
+                  [routerLink]="['/home/reservationForm']"
+                  [state]="{ data: reserva, isNew: true }"
                 >
                   <img src="../../../assets/icons/edit.svg" width="40" />
                 </button>
