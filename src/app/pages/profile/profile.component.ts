@@ -1,25 +1,65 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AuxUsuario } from 'src/app/models/aux-user.model'; 
+import { AuthService } from 'src/app/services/auth.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent {
- /* activeTab: string = 'activo'; // Establece 'activo' como la pestaña activa por defecto
+export class ProfileComponent implements OnInit {
+  id_user: any;
+  usuario: AuxUsuario = new AuxUsuario();
+  isEditing = false;
 
-  mostrarPerfil(tab: string) {
-    this.activeTab = tab; // Cambia la pestaña activa según el enlace seleccionado
-  }*/
+  constructor(
+    private tokenService: TokenService,
+    private authService: AuthService,
+    private toastrService: ToastrService,
+    private router: Router
+  ) {}
 
-  tabs = [
-    { title: 'Tab 1', content: 'Contenido de la pestaña 1' },
-    { title: 'Tab 2', content: 'Contenido de la pestaña 2' },
-    { title: 'Tab 3', content: 'Contenido de la pestaña 3' }
-  ];
-  activeTab = this.tabs[0]; // Establece la pestaña activa por defecto
+  ngOnInit(): void {
+    this.id_user = this.tokenService.getIdUser() ?? 0;
+    this.getUserById(this.id_user);
+  }
 
-  setActiveTab(tab: any): void {
-    this.activeTab = tab;
+  private getUserById(usuario: number) {
+    this.authService.getUserById(usuario).subscribe({
+      next: (data: AuxUsuario) => {
+        this.usuario = data;
+      },
+      error: (err: Error) => {
+        console.log(err);
+      },
+    });
+  }
+
+  editProfile() {
+    this.isEditing = !this.isEditing;
+  }
+
+  updateUser(id: number, usuario: any) {
+    console.log(id, usuario);
+    console.log(this.isEditing);
+
+    this.authService.updateUser(id, usuario).subscribe({
+      next: (data: AuxUsuario) => {
+        this.toastrService.success('Usuario actualizado', 'Ok', {
+          timeOut: 3000,
+          positionClass: 'toast-top-center',
+        });
+        this.router.navigate(['/home']);
+      },
+      error: (err: any) => {
+        this.toastrService.error(err.error.message, 'Fail', {
+          timeOut: 3000,
+          positionClass: 'toast-top-center',
+        });
+      },
+    });
   }
 }

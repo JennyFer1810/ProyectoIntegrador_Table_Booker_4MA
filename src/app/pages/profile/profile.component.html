@@ -1,191 +1,137 @@
-
 <div class="container-fluid">
   <div class="bg-image">
     <div class="row justify-content-center">
-      <div class="col-10 col-md-10 col-lg-10 text-center">
+      <div class="col-12 text-center">
         <img
           src="../../../assets/icons/user_login.svg"
           class="mx-auto"
           alt="user"
           width="100"
         />
-        <h2>Persona 1</h2>
+        <h2>{{ usuario.nombres + " " + usuario.apellidos }}</h2>
+      </div>
+      <div class="col-10 text-center">
+        <button
+          (click)="editProfile()"
+          (click)="isEditing ? updateUser(usuario.id_usuario, usuario) : ''"
+          class="btn btn-{{ isEditing ? 'success' : 'warning' }}"
+        >
+          {{ isEditing ? "Guardar" : "Editar" }}
+        </button>
       </div>
     </div>
-
-    <div class="row justify-content-center">
+    <!-- ============ Panel de datos cuando no esta editando ============= -->
+    <div
+      class="row justify-content-center mt-4 text-center"
+      *ngIf="isEditing === false"
+    >
       <div class="col-10 col-md-6 col-lg-6">
-        <div class="container mt-4">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                id="opcion1-tab"
-                data-toggle="tab"
-                href="#opcion1"
-                role="tab"
-                aria-controls="opcion1"
-                aria-selected="true"
-                >Opción 1</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                id="opcion2-tab"
-                data-toggle="tab"
-                href="#opcion2"
-                role="tab"
-                aria-controls="opcion2"
-                aria-selected="false"
-                >Opción 2</a
-              >
-            </li>
-          </ul>
-          <div class="tab-content" id="myTabContent">
-            <div
-              class="tab-pane fade show active"
-              id="opcion1"
-              role="tabpanel"
-              aria-labelledby="opcion1-tab"
-            >
-              <form>
-                <div class="form-group">
-                  <label for="nombre1">Nombre:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="nombre1"
-                    placeholder="Ingrese su nombre"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="apellido1">Apellido:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="apellido1"
-                    placeholder="Ingrese su apellido"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="identificacion1">Identificación:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="identificacion1"
-                    placeholder="Ingrese su identificación"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="email1">Correo Electrónico:</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email1"
-                    placeholder="Ingrese su correo electrónico"
-                  />
-                </div>
-              </form>
-            </div>
-            <div
-              class="tab-pane fade"
-              id="opcion2"
-              role="tabpanel"
-              aria-labelledby="opcion2-tab"
-            >
-              <form>
-                <div class="form-group">
-                  <label for="nombre2">Nombre:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="nombre2"
-                    placeholder="Ingrese su nombre"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="apellido2">Apellido:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="apellido2"
-                    placeholder="Ingrese su apellido"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="identificacion2">Identificación:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="identificacion2"
-                    placeholder="Ingrese su identificación"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="email2">Correo Electrónico:</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email2"
-                    placeholder="Ingrese su correo electrónico"
-                  />
-                </div>
-              </form>
-            </div>
+        <div class="row mb-4 justify-content-center">
+          <div class="col-lg-3">
+            <label for="nombres">Nombres:</label>
+          </div>
+          <div class="col-lg-3">
+            {{ usuario.nombres }}
+          </div>
+        </div>
+        <div class="row mb-4 justify-content-center">
+          <div class="col-lg-3">
+            <label for="apellidos">Apellidos:</label>
+          </div>
+          <div class="col-lg-3">
+            {{ usuario.apellidos }}
+          </div>
+        </div>
+        <div class="row mb-4 justify-content-center">
+          <div class="col-lg-3">
+            <label for="identificacion">Identificacion:</label>
+          </div>
+          <div class="col-lg-3">
+            {{ usuario.identificacion }}
+          </div>
+        </div>
+        <div class="row mb-4 justify-content-center">
+          <div class="col-lg-3">
+            <label for="correo">Correo electrónico:</label>
+          </div>
+          <div class="col-lg-3">
+            {{ usuario.correo }}
+          </div>
+        </div>
+        <div class="row mb-4 justify-content-center">
+          <div class="col-lg-3">
+            <label for="saldo">Tu Saldo:</label>
+          </div>
+          <div class="col-lg-3">
+            ${{ usuario.saldo }}
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-<!-- Aquí puedes escribir tu comentario 
-<ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link" (click)="mostrarPerfil('activo')" [class.active]="activeTab === 'activo'">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" (click)="mostrarPerfil('inactivo')" [class.disabled]="activeTab === 'inactivo'">Disabled</a>
-  </li>
-</ul>
 
-<div *ngIf="activeTab === 'activo'">
-  <label for="nombre">Nombre:</label>
-  <input type="text" id="nombre" name="nombre"><br><br>
-
-  <label for="apellido">Apellido:</label>
-  <input type="text" id="apellido" name="apellido"><br><br>
-
-  <label for="identificacion">Identificación:</label>
-  <input type="text" id="identificacion" name="identificacion"><br><br>
-
-  <label for="correo">Correo Electrónico:</label>
-  <input type="text" id="correo" name="correo"><br><br>
-</div>
-
-<div *ngIf="activeTab === 'inactivo'">
-  <p>Completo</p>
-</div>
--->
-
-<ul class="nav nav-tabs">
-  <li class="nav-item" *ngFor="let tab of tabs">
-    <a
-      class="nav-link"
-      [class.active]="tab === activeTab"
-      (click)="setActiveTab(tab)"
-    >
-      {{ tab.title }}
-    </a>
-  </li>
-</ul>
-
-<div class="tab-content">
-  <div
-    class="tab-pane"
-    *ngFor="let tab of tabs"
-    [class.show]="tab === activeTab"
-  >
-    <p>{{ tab.content }}</p>
+    <!-- ========== Formulario cuando esta editando -->
+    <div class="row justify-content-center mt-4" *ngIf="isEditing === true">
+      <div class="col-10 col-md-6 col-lg-6">
+        <div class="container mt-4">
+          <form>
+            <div class="form-group">
+              <label for="nombres">Nombres:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombres"
+                placeholder="Ingrese sus nombres"
+                name="nombres"
+                [(ngModel)]="usuario.nombres"
+              />
+            </div>
+            <div class="form-group">
+              <label for="apellidos">Apellidos:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="apellidos"
+                placeholder="Ingrese sus apellidos"
+                name="apellidos"
+                [(ngModel)]="usuario.apellidos"
+              />
+            </div>
+            <div class="form-group">
+              <label for="identificacion">Identificación:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="identificacion"
+                placeholder="Ingrese su identificación"
+                name="identificacion"
+                [(ngModel)]="usuario.identificacion"
+              />
+            </div>
+            <div class="form-group">
+              <label for="n">Correo Electrónico:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Ingrese su correo electrónico"
+                name="email"
+                [(ngModel)]="usuario.correo"
+              />
+            </div>
+            <div class="form-group">
+              <label for="saldo">Saldo:</label>
+              <input
+                type="number"
+                class="form-control"
+                id="saldo"
+                placeholder="Ingrese cuanto de saldo"
+                name="saldo"
+                [(ngModel)]="usuario.saldo"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
