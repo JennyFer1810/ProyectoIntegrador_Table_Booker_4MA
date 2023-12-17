@@ -4,7 +4,7 @@
     Bienvenido, {{ usuario.nombres }} {{ usuario.apellidos }}
   </h2>
   <div class="row justify-content-center">
-    <div class="col-md-3 col-lg-2 mx-5 my-2 mb-sm-0" *ngIf="isAdmin">
+    <div class="col-md-3 col-lg-2 mx-2 my-2 mb-sm-0" *ngIf="isAdmin">
       <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
       <a href="/home/adminReservation" class="card-link text-decoration-none">
         <div class="card h-100 p-3 rounded custom-card">
@@ -22,7 +22,7 @@
       </a>
     </div>
     <hr class="d-sm-none" *ngIf="isAdmin" />
-    <div class="col-md-3 col-lg-2 mx-5 my-2 mb-sm-0" *ngIf="!isAdmin">
+    <div class="col-md-3 col-lg-2 mx-2 my-2 mb-sm-0" *ngIf="!isAdmin">
       <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
       <a
         href="/home/customerReservation"
@@ -44,7 +44,7 @@
     </div>
     <hr class="d-sm-none" *ngIf="!isAdmin" />
 
-    <div class="col-md-3 col-lg-2 mx-5 my-2 mb-sm-0">
+    <div class="col-md-3 col-lg-2 mx-2 my-2 mb-sm-0">
       <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
       <a href="/home/profile" class="card-link text-decoration-none">
         <div class="card h-100 p-3 rounded custom-card">
@@ -63,7 +63,7 @@
     </div>
     <hr class="d-sm-none" />
 
-    <div class="col-md-3 col-lg-2 mx-5 my-2 mb-sm-0" *ngIf="!isAdmin">
+    <div class="col-md-3 col-lg-2 mx-2 my-2 mb-sm-0" *ngIf="!isAdmin">
       <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
       <a href="/home/reservationForm" class="card-link text-decoration-none">
         <div class="card h-100 p-3 rounded custom-card">
@@ -82,7 +82,37 @@
     </div>
     <hr class="d-sm-none" *ngIf="!isAdmin" />
 
-    <div class="col-md-3 col-lg-2 mx-5 my-2 mb-sm-0">
+    <div class="col-md-3 col-lg-2 mx-2 my-2 mb-sm-0">
+      <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
+      <a href="/" class="card-link text-decoration-none">
+        <div class="card h-100 p-3 rounded custom-card">
+          <div class="text-center">
+            <img src="../../../assets/icons/list.svg" alt="imagen1" width="55%" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">Listado de mesas</h5>
+          </div>
+        </div>
+      </a>
+    </div>
+    <hr class="d-sm-none" *ngIf="!isAdmin" />
+
+    <div class="col-md-3 col-lg-2 mx-2 my-2 mb-sm-0">
+      <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
+      <a href="/" class="card-link text-decoration-none">
+        <div class="card h-100 p-3 rounded custom-card">
+          <div class="text-center">
+            <img src="../../../assets/icons/table.svg" alt="imagen2" width="60%" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">Registro de mesas</h5>
+          </div>
+        </div>
+      </a>
+    </div>
+    <hr class="d-sm-none" *ngIf="!isAdmin" />
+
+    <div class="col-md-3 col-lg-2 mx-2 my-2 mb-sm-0">
       <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
       <div class="card h-100 p-3 rounded custom-card position-relative">
         <div class="text-center">
