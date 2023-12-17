@@ -1,77 +1,81 @@
 <div class="container-fluid vh-100">
-    <div class="row justify-content-center ">
-      <div class="col-12 col-md-12 col-lg-12 mt-5">
-        <h2 class="text-center">Listado de Reservaciones</h2>
-      </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-12 col-lg-12 mt-5">
+      <h2 class="text-center">Listado de Reservaciones</h2>
     </div>
-  
-    <div class="row justify-content-center pt-3 px-3 pb-2">
-      <div class="col-12 col-md-10 col-lg-10">
-        <div class="row title p-2">
-          <div class="col-6 col-md-6 col-log-10">
-            <h3>Reservaciones</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-10 col-lg-10">
-        <div class="table-responsive">
-          <table class="table mx-auto custom-table table-borderless">
-            <thead class="justify-content-center text-center">
-              <tr>
-                <th scope="col" id="nombre">Nombre</th>
-                <th scope="col" id="fecha">Fecha de Reserva</th>
-                <th scope="col" id="pago">Pago</th>
-                <th scope="col" id="seguimiento">Seguimiento</th>
-                <th scope="col" id="boton">Visualizar</th>
-              </tr>
-            </thead>
-            
-            <tbody class="justify-content-center text-center">
-              <tr>
-                <td id="nombre1" class="nombre">
-                  <div class="d-flex align-items-center">
-                    <img src="../../../assets/images/" class="rounded-circle ms-3" width="50">
-                    <span class="flex-grow-1"></span>
-                  </div>
-                </td>
-                <td id="fechaReserva1" class="fechaReserva"></td>
-                <td id="pago1" class="pago"></td>
-                <td id="seguimiento1" class="seguimiento"></td>
-                <td><button type="submit" class="btn-icon text-center" id="visualizar1">
-                    <img src="../../../assets/icons/trashacan.svg" width="40">
-                  </button>
-                  <button type="submit" class="btn-icon text-center" id="visualizar1">
-                    <img src="../../../assets/icons/edit.svg" width="40">
-                  </button>
-                </td>
-              </tr> 
-  
-              <tr>
-                <td id="nombre2" class="nombre">
-                  <div class="d-flex align-items-center">
-                    <img src="../../../assets/images/" class="rounded-circle ms-3" width="40">
-                    <span class="flex-grow-1"></span>
-                  </div>
-                </td>
-                <td id="fechaReserva2" class="fechaReserva"></td>
-                <td id="pago2" class="pago"></td>
-                <td id="seguimiento2" class="seguimiento"></td>
-                <td><button type="submit" class="btn-icon text-center" id="visualizar1">
-                    <img src="../../../assets/icons/trashacan.svg" width="40">
-                  </button>
-                  <button type="submit" class="btn-icon text-center" id="visualizar1">
-                    <img src="../../../assets/icons/edit.svg" width="40">
-                    
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+  </div>
+
+  <div class="row justify-content-center pt-3 px-3 pb-2">
+    <div class="col-12 col-md-10 col-lg-10">
+      <div class="row title p-2">
+        <div class="col-6 col-md-6 col-log-10">
+          <h3>Reservaciones</h3>
         </div>
       </div>
     </div>
   </div>
-  
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-10">
+      <div class="table-responsive">
+        <table class="table mx-auto custom-table table-borderless">
+          <thead class="justify-content-center text-center">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Persona registro reserva</th>
+              <th scope="col">Nombre de la reserva</th>
+              <th scope="col">Fecha de Reserva</th>
+              <th scope="col">Fecha de registro reserva</th>
+              <th scope="col">Costo</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Visualizar</th>
+            </tr>
+          </thead>
+
+          <tbody class="justify-content-center text-center">
+            <tr *ngFor="let reserva of adminReservationList">
+              <td id="id" class="id">
+                {{ reserva.id_reserva }}
+              </td>
+              <td id="persona" class="persona">
+                {{ reserva.usuario.identificacion }} <br />
+                {{ reserva.usuario.nombres }} {{ reserva.usuario.apellidos }}
+              </td>
+              <td id="nombre" class="nombre">
+                {{ reserva.nombre_reservacion }}
+              </td>
+              <td id="fechaReserva" class="fechaReserva">
+                {{ reserva.fecha_reserva }}
+              </td>
+              <td id="fechaReserva" class="fechaReserva">
+                {{ reserva.fecha_registro_reserva }}
+              </td>
+              <td id="costo" class="costo">
+                {{ reserva.costo_total }}
+              </td>
+              <td id="estado" class="estado">
+                {{ reserva.estado ? "Pendiente" : "Completado" }}
+              </td>
+              <td>
+                <button
+                  type="submit"
+                  class="btn-icon text-center"
+                  id="visualizar1"
+                >
+                  <img src="../../../assets/icons/trashacan.svg" width="40" />
+                </button>
+                <button
+                  type="submit"
+                  class="btn-icon text-center"
+                  id="visualizar1"
+                >
+                  <img src="../../../assets/icons/edit.svg" width="40" />
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

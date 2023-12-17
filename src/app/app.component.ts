@@ -6,5 +6,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ProyectoIntegrador_Table_Booker_3MA';
+  title = 'Table booker';
 }

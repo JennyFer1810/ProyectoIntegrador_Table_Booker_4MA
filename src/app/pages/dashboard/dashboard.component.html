@@ -1,12 +1,40 @@
 <div class="container-fluid">
-  <h1 class="text-center pt-3">Listado Reservaciones</h1>
-  <h2 class="text-center mb-5">Bienvenido, Usuario</h2>
+  <h1 class="text-center pt-3">Panel de Usuario</h1>
+  <h2 class="text-center mb-5">
+    Bienvenido, {{ usuario.nombres }} {{ usuario.apellidos }}
+  </h2>
   <div class="row justify-content-center">
-    <div class="col-10 col-md-3 col-lg-2 mb-3 mb-sm-0"> <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
-      <a href="/customerReservation" class="card-link text-decoration-none">
-        <div class="card h-100 p-3 rounded custom-card"> 
+    <div class="col-md-3 col-lg-2 mx-5 my-2 mb-sm-0" *ngIf="isAdmin">
+      <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
+      <a href="/home/adminReservation" class="card-link text-decoration-none">
+        <div class="card h-100 p-3 rounded custom-card">
           <div class="text-center">
-            <img src="../../../assets/icons/clipboard.svg" alt="clipboard" width="50%">
+            <img
+              src="../../../assets/icons/clipboard.svg"
+              alt="clipboard"
+              width="50%"
+            />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">Reservaciones</h5>
+          </div>
+        </div>
+      </a>
+    </div>
+    <hr class="d-sm-none" *ngIf="isAdmin" />
+    <div class="col-md-3 col-lg-2 mx-5 my-2 mb-sm-0" *ngIf="!isAdmin">
+      <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
+      <a
+        href="/home/customerReservation"
+        class="card-link text-decoration-none"
+      >
+        <div class="card h-100 p-3 rounded custom-card">
+          <div class="text-center">
+            <img
+              src="../../../assets/icons/clipboard.svg"
+              alt="clipboard"
+              width="50%"
+            />
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">Mis Reservaciones</h5>
@@ -14,13 +42,18 @@
         </div>
       </a>
     </div>
-    <hr class="d-sm-none">
+    <hr class="d-sm-none" *ngIf="!isAdmin" />
 
-    <div class="col-10 col-md-3 col-lg-2 mx-5 mb-3 mb-sm-0"> <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
-      <a href="/profile" class="card-link text-decoration-none">
-        <div class="card h-100 p-3 rounded custom-card"> 
+    <div class="col-md-3 col-lg-2 mx-5 my-2 mb-sm-0">
+      <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
+      <a href="/home/profile" class="card-link text-decoration-none">
+        <div class="card h-100 p-3 rounded custom-card">
           <div class="text-center">
-            <img src="../../../assets/icons/person.svg" alt="person" width="60%">
+            <img
+              src="../../../assets/icons/person.svg"
+              alt="person"
+              width="60%"
+            />
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">Perfil</h5>
@@ -28,13 +61,18 @@
         </div>
       </a>
     </div>
-    <hr class="d-sm-none">
+    <hr class="d-sm-none" />
 
-    <div class="col-10 col-md-3 col-lg-2 mb-3 mb-sm-0"> <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
-      <a href="/reservationForm" class="card-link text-decoration-none">
-        <div class="card h-100 p-3 rounded custom-card"> 
+    <div class="col-md-3 col-lg-2 mx-5 my-2 mb-sm-0" *ngIf="!isAdmin">
+      <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
+      <a href="/home/reservationForm" class="card-link text-decoration-none">
+        <div class="card h-100 p-3 rounded custom-card">
           <div class="text-center">
-            <img src="../../../assets/icons/clipboardplus.svg" alt="list+" width="55%">
+            <img
+              src="../../../assets/icons/clipboardplus.svg"
+              alt="list+"
+              width="55%"
+            />
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">Solicitar Reservación</h5>
@@ -42,19 +80,23 @@
         </div>
       </a>
     </div>
-    <hr class="d-sm-none">
+    <hr class="d-sm-none" *ngIf="!isAdmin" />
 
-    <div class="col-10 col-md-3 col-lg-2 mx-5 mb-3 mb-sm-0"> <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
-      <a href="/reservationForm" class="card-link text-decoration-none">
-        <div class="card h-100 p-3 rounded custom-card"> 
-          <div class="text-center">
-            <img src="../../../assets/icons/sesion.svg" alt="list+" width="55%">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title text-center">Cerrar Sesión</h5>
-          </div>
+    <div class="col-md-3 col-lg-2 mx-5 my-2 mb-sm-0">
+      <!-- Clase mb-sm-0 para eliminar el margen en pantallas pequeñas -->
+      <div class="card h-100 p-3 rounded custom-card position-relative">
+        <div class="text-center">
+          <img src="../../../assets/icons/sesion.svg" alt="list+" width="55%" />
         </div>
-      </a>
+        <div class="card-body">
+          <h5 class="card-title text-center">Cerrar Sesión</h5>
+          <a
+            type="button"
+            class="stretched-link"
+            (click)="logOut()"
+          ></a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

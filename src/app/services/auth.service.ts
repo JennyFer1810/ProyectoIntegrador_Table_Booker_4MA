@@ -16,19 +16,19 @@ export class AuthService {
   constructor(private httpClient: HttpClient) { }
 
   //=================================== Usuario
-  login(dto: LoginUsuarioModel): Observable<any> {
+  public login(dto: LoginUsuarioModel): Observable<any> {
     return this.httpClient.post<any>(this.authURL + 'login', dto);
   }
 
-  registro(dto: UsuarioModel): Observable<any> {
+  public createClient(dto: UsuarioModel): Observable<any> {
     return this.httpClient.post<any>(this.authURL + 'nuevo', dto);
   }
 
-  refresh(dto: TokenModel): Observable<any> {
+  public refresh(dto: TokenModel): Observable<any> {
     return this.httpClient.post<any>(this.authURL + 'refresh', dto);
   }
 
-  public update(id_usuario: number, usuario: UsuarioModel): Observable<any> {
+  public updateUser(id_usuario: number, usuario: UsuarioModel): Observable<any> {
     return this.httpClient.patch<any>(`${this.authURL}${id_usuario}`, usuario);
   }
 
@@ -36,11 +36,11 @@ export class AuthService {
     return this.httpClient.delete<any>(`${this.authURL}${id_usuario}`);
   }
 
-  public detail(id_usuario: number): Observable<UsuarioModel> {
+  public getUserById(id_usuario: number): Observable<UsuarioModel> {
     return this.httpClient.get<UsuarioModel>(`${this.authURL}${id_usuario}`);
   }
 
-  public lista(): Observable<UsuarioModel[]> {
+  public getList(): Observable<UsuarioModel[]> {
     return this.httpClient.get<UsuarioModel[]>(`${this.authURL}`);
   }
 

@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TokenService {
-
-
   isLogged(): boolean {
     if (this.getToken()) {
       return true;
@@ -21,7 +19,7 @@ export class TokenService {
     return localStorage.getItem('token');
   }
 
-  getInfoUser(): string | null {
+  getNameUser(): string | null {
     const token = this.getToken();
     if (!token) {
       return null;
@@ -29,8 +27,23 @@ export class TokenService {
     const payload = token.split('.')[1];
     const values = atob(payload);
     const valuesJson = JSON.parse(values);
-    const nombre_usuario = valuesJson?.correo;
+    console.log(valuesJson);
+    const nombre_usuario = valuesJson?.nombres;
+
     return nombre_usuario || null;
+  }
+
+  getIdUser(): string | null {
+    const token = this.getToken();
+    if (!token) {
+      return null;
+    }
+    const payload = token.split('.')[1];
+    const values = atob(payload);
+    const valuesJson = JSON.parse(values);
+    const id_usuario = valuesJson?.id_usuario;
+    console.log(id_usuario);
+    return id_usuario || null;
   }
 
   isAdmin(): boolean | null {
@@ -41,7 +54,7 @@ export class TokenService {
     const payload = token.split('.')[1];
     const values = atob(payload);
     const valuesJson = JSON.parse(values);
-    const roles = valuesJson?.roles
+    const roles = valuesJson?.roles;
     console.log(roles);
 
     if (roles && roles.indexOf('admin') >= 0) {
