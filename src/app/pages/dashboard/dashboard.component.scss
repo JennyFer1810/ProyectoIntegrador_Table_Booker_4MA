@@ -11,3 +11,14 @@
 .custom-card:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
+.fin {
+    background-color: #FBC97E;
+    min-height: 42vh; 
+}
+
+@media screen and (max-width: 768px) {
+    .fin {
+        min-height: 15vh; 
+    }
+}
