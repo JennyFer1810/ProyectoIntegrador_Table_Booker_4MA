@@ -92,7 +92,6 @@ export class ReservationFormComponent implements OnInit {
           timeOut: 3000,
           positionClass: 'toast-top-center',
         });
-        this.router.navigate(['/home']);
       },
       error: (err: any) => {
         this.toastr.error(err.error.message, 'Fail', {

@@ -30,9 +30,7 @@
               </td>
               <td
                 id="estado"
-                class="estado text-{{
-                  mesa.estado ? 'success' : 'danger'
-                }}"
+                class="estado text-{{ mesa.estado ? 'success' : 'danger' }}"
               >
                 {{ mesa.estado ? "Disponible" : "Ocupada" }}
               </td>
@@ -47,14 +45,17 @@
                 <button
                   type="submit"
                   class="btn-icon text-center"
-                  id="visualizar1"
+                  id="eliminar"
+                  (click)="setEliminateTable(mesa)"
+                  data-bs-toggle="modal"
+                  data-bs-target="#eliminateModal"
                 >
                   <img src="../../../assets/icons/trashacan.svg" width="40" />
                 </button>
                 <button
                   type="submit"
                   class="btn-icon text-center"
-                  id="visualizar1"
+                  id="actualizar"
                   [routerLink]="['/home/tableForm']"
                   [state]="{ data: mesa, isNew: true }"
                 >
@@ -64,6 +65,35 @@
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="eliminateModal"
+  tabindex="-1"
+  aria-labelledby="eliminateModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h5>¿Seguro de que quiere eliminar este registro?</h5>
+        <h5>No se podrá recuperar.</h5>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="deleteTable()"
+        >
+          Eliminar
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
       </div>
     </div>
   </div>
