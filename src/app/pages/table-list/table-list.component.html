@@ -28,7 +28,12 @@
               <td id="cantidadPersonas" class="cantidadPersonas">
                 {{ mesa.cantidad_personas }}
               </td>
-              <td id="estado" class="estado">
+              <td
+                id="estado"
+                class="estado text-{{
+                  mesa.estado ? 'success' : 'danger'
+                }}"
+              >
                 {{ mesa.estado ? "Disponible" : "Ocupada" }}
               </td>
               <td id="esVip" class="esVip">
@@ -43,8 +48,6 @@
                   type="submit"
                   class="btn-icon text-center"
                   id="visualizar1"
-                  [routerLink]="['/home/tableForm']"
-                  [state]="{ data: mesa, isNew: true }"
                 >
                   <img src="../../../assets/icons/trashacan.svg" width="40" />
                 </button>
@@ -52,6 +55,8 @@
                   type="submit"
                   class="btn-icon text-center"
                   id="visualizar1"
+                  [routerLink]="['/home/tableForm']"
+                  [state]="{ data: mesa, isNew: true }"
                 >
                   <img src="../../../assets/icons/edit.svg" width="40" />
                 </button>

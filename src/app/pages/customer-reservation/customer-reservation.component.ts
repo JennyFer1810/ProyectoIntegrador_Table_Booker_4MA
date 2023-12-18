@@ -22,6 +22,8 @@ export class CustomerReservationComponent implements OnInit {
   ngOnInit(): void {
     this.id_usuario = this.tokenService.getIdUser() ?? 0;
     this.getAllReservations(this.id_usuario);
+
+    
   }
 
   navegarAReservationForm() {

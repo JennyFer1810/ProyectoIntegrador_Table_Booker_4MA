@@ -24,7 +24,6 @@ export class AdminReservationComponent implements OnInit {
     this.reservaService.getListReserva().subscribe({
       next: (data: ReservaModel[]) =>{
         this.adminReservationList = data;
-        console.log(this.adminReservationList);
       },
       error: (err: Error) =>{
         console.log(err);

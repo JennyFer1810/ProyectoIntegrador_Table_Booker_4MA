@@ -27,7 +27,6 @@ export class TokenService {
     const payload = token.split('.')[1];
     const values = atob(payload);
     const valuesJson = JSON.parse(values);
-    console.log(valuesJson);
     const nombre_usuario = valuesJson?.nombres;
 
     return nombre_usuario || null;
@@ -42,7 +41,6 @@ export class TokenService {
     const values = atob(payload);
     const valuesJson = JSON.parse(values);
     const id_usuario = valuesJson?.id_usuario;
-    console.log(id_usuario);
     return id_usuario || null;
   }
 
@@ -55,7 +53,6 @@ export class TokenService {
     const values = atob(payload);
     const valuesJson = JSON.parse(values);
     const roles = valuesJson?.roles;
-    console.log(roles);
 
     if (roles && roles.indexOf('admin') >= 0) {
       return true;

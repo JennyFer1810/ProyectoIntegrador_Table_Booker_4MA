@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -17,7 +18,8 @@ export class DashboardComponent {
 
   constructor(
     private tokenService: TokenService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -43,5 +45,30 @@ export class DashboardComponent {
 
   logOut(): void {
     this.tokenService.logOut();
+    this.router.navigate(['/auth']);
+  }
+
+  adminReservation(): void {
+    this.router.navigate(['/home/adminReservation']);
+  }
+
+  customerReservation(): void {
+    this.router.navigate(['/home/customerReservation']);
+  }
+
+  profileNavigation(): void {
+    this.router.navigate(['/home/profile']);
+  }
+
+  reservationFormNavigation(): void {
+    this.router.navigate(['/home/reservationForm']);
+  }
+
+  tableListNavigation(): void {
+    this.router.navigate(['/home/tableList']);
+  }
+
+  tableFormNavigation(): void {
+    this.router.navigate(['/home/tableForm']);
   }
 }

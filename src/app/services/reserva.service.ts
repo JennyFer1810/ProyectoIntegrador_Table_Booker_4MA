@@ -27,8 +27,6 @@ export class ReservaService {
   }
 
   public saveReserva(reserva: Reserva): Observable<any> {
-    console.log('reserva service');
-    console.log(reserva);
     return this.httpClient.post<any>(`${this.reservaURL}`, reserva);
   }
 

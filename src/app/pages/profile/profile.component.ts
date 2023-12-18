@@ -43,8 +43,6 @@ export class ProfileComponent implements OnInit {
   }
 
   updateUser(id: number, usuario: AuxUsuario) {
-    console.log(id, usuario);
-    console.log(this.isEditing);
 
     this.authService.updateUser(id, usuario).subscribe({
       next: (data: AuxUsuario) => {

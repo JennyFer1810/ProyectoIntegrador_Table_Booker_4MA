@@ -47,7 +47,7 @@ export class ReservationFormComponent implements OnInit {
 
         if (mesa) {
           this.reserva.mesa = mesa;
-          this.calcularTotalReserva()
+          this.calcularTotalReserva();
         } else {
           // Maneja el caso en que no se encuentra la mesa.
         }
@@ -87,16 +87,14 @@ export class ReservationFormComponent implements OnInit {
   saveReserva(reserva: Reserva) {
     this.reserva.usuario = this.usuario;
     this.reservaService.saveReserva(reserva).subscribe({
-      next: (data: Reserva) => {
-        this.toastr.success('Reserva creada', 'Ok', {
+      next: (data) => {
+        this.toastr.success(data.message, 'Ok', {
           timeOut: 3000,
           positionClass: 'toast-top-center',
         });
         this.router.navigate(['/home']);
       },
       error: (err: any) => {
-        console.log('reserva form');
-        console.log(reserva);
         this.toastr.error(err.error.message, 'Fail', {
           timeOut: 3000,
           positionClass: 'toast-top-center',

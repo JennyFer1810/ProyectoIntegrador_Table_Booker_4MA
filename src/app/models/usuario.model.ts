@@ -3,7 +3,7 @@ export class Usuario {
   nombres: string = '';
   apellidos: string = '';
   contrasenia: string = '';
-  saldo: number = 0;
+  saldo: number = 25.0;
   correo: string = '';
   identificacion: string = '';
   estado: boolean = false;

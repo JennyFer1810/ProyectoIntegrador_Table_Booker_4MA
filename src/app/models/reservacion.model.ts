@@ -6,7 +6,7 @@ export class Reserva {
   fecha_reserva: Date = new Date();
   fecha_registro_reserva: Date = new Date();
   nombre_reservacion: string = "";
-  estado: boolean = false;
+  estado: boolean = true;
   costo_reserva: number = 10.0;
   costo_total: number = 0;
   usuario: Usuario = new Usuario();

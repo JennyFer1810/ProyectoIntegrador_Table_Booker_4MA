@@ -59,7 +59,8 @@
                   <option *ngFor="let mesa of mesasList" [ngValue]="mesa">
                     {{ "Pesa para: " + mesa.cantidad_personas }} /
                     {{ "Planta: " + mesa.planta }} /
-                    {{ mesa.esVip ? "Es vip" : "No es vip" }}
+                    {{ mesa.esVip ? "Es vip" : "No es vip" }} /
+                    {{ mesa.estado ? "Disponible" : "Ocupada" }}
                   </option>
                 </select>
               </div>

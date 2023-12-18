@@ -53,7 +53,10 @@
               <td id="costo" class="costo">
                 {{ reserva.costo_total }}
               </td>
-              <td id="estado" class="estado">
+              <td
+                id="estado"
+                class="estado text-{{ reserva.estado ? 'warning' : 'success' }}"
+              >
                 {{ reserva.estado ? "Pendiente" : "Completado" }}
               </td>
               <td>

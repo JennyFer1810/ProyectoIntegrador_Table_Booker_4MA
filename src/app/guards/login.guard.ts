@@ -18,8 +18,7 @@ export class LoginGuard {
     state: RouterStateSnapshot
   ): boolean {
     if (this.tokenService.isLogged()) {
-      this.router.navigate(['/home']);
-      console.log(next, state);      
+      this.router.navigate(['/home']);      
     }
     return true;
   }

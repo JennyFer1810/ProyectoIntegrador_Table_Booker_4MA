@@ -27,7 +27,7 @@
               class="img-fluid ms-2"
               style="max-height: 20px"
             />
-             Nueva Reserva
+            Nueva Reserva
           </button>
         </div>
       </div>
@@ -45,6 +45,7 @@
               <th scope="col">Fecha Reservada</th>
               <th scope="col">Costo total</th>
               <th scope="col">Estado</th>
+              <th scope="col">Es mesa vip</th>
               <th scope="col">Visualizar</th>
             </tr>
           </thead>
@@ -60,8 +61,14 @@
                 {{ reserva.fecha_reserva }}
               </td>
               <td id="pago" class="pago">${{ reserva.costo_total }}</td>
-              <td id="estado" class="estado">
+              <td
+                id="estado"
+                class="estado text-{{ reserva.estado ? 'warning' : 'success' }}"
+              >
                 {{ reserva.estado ? "Pendiente" : "Completado" }}
+              </td>
+              <td id="estado" class="estado">
+                {{ reserva.mesa.esVip ? "Si" : "No" }}
               </td>
               <td>
                 <button
